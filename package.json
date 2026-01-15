@@ -1,0 +1,32 @@
+{
+  "name": "171-evcm-website",
+  "version": "1.0.0",
+  "description": "Static website for **171 EVCM LLC – Real Estate & Property Management**, built with HTML, CSS, and JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvansCortez/171-evcm-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/EvansCortez/171-evcm-website/issues"
+  },
+  "homepage": "https://github.com/EvansCortez/171-evcm-website#readme",
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.2",
+    "vite": "^7.3.1"
+  }
+}
