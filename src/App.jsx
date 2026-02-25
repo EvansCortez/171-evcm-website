@@ -1,25 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Properties from './components/Properties';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import AboutPage from './pages/About';
+import PropertiesPage from './pages/Properties';
+import ContactPage from './pages/Contact';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setMobileMenuOpen(false);
-    }
   };
 
   useEffect(() => {
@@ -44,21 +36,23 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Header 
-        mobileMenuOpen={mobileMenuOpen} 
-        toggleMobileMenu={toggleMobileMenu} 
-        scrollToSection={scrollToSection} 
-      />
-      <main>
-        <Hero scrollToSection={scrollToSection} />
-        <Services />
-        <About />
-        <Properties />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header 
+          mobileMenuOpen={mobileMenuOpen} 
+          toggleMobileMenu={toggleMobileMenu} 
+        />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/properties" element={<PropertiesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
